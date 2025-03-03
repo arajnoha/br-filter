@@ -1,59 +1,36 @@
-# BrFilter
+# Bloomreach FE filter
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+![preview of the filter](preview.png)
 
-## Development server
+This is a proof-of-concept of an assignment to implement the customer filter logic in Angular.
 
-To start a local development server, run:
+To be brutal honest, I did not have much time to put into it, one, due to other applications and workload, and second, more important, we are going through a tough family situation right now which shuffled with my capacity throughout the last weeks.
 
-```bash
-ng serve
-```
+For the past few years, I have either developed in vanilla JS or React. At my last job, I have progressively built an in-house custom framework in plain javascript, featuring store management, session control, api calls, history api, local storage and custom-compoments. My experience with Angular is from the times when the version number was a single digit ;) 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Due to the previous paragraph, I'm submitting this knowing that it's not feature-complete. But I felt like if there is a chance to move forward in the process, I should rather push what i have than nothing. I know that odds are not on my side but I've decided to go through nevertheless, and describe in this README, how would I apporach the stuff I haven't coded in yet, to at least somewhat showcase my skills in other ways possible.
 
-## Code scaffolding
+### Install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `npm install`
+- `ng serve`
+- `http://localhost:4200`
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Steps management
 
-```bash
-ng generate --help
-```
+Although I have the `filterSteps` array to count and prefix its title, I was playing with the idea of abstracting the logic out of the component to CSS using the `counter-increment` rule. This way, I could simplify the component's readability, though I would have to document it for others for its unconventionality. 
 
-## Building
 
-To build the project run:
+### Sub-select elements
 
-```bash
-ng build
-```
+There are two options now, one is to have the `filter-step` component ready for the hardcoded attribute dropdown, second is to let the app adapt fot the API response and dynamically create the sub-sequent dropdowns based on the nested objects in the `events` response.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Post Apply-filter data structure
 
-## Running unit tests
+My ideal structure would be the reflection of the endpoint. It's crucial to architect the data based on context, so I would need to know its later processing logic (DB storage, BE handling etc) but I would reconstruct the API call structure of an array of objects. The final array would have as many objects as there are form steps, in which the nested objects would store the attributes and the logical operators as strings.
+I would likely make a JSON out of it and using the Fetch API call, send it to an endpoint in a verified manner.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Styles
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+I have chosen SASS (in scss syntax) as it makes the most sense to me. The visual hierarchy just looks understandable and I can leverage its built-in functions. I did choose to make variable in native CSS format as I wanted to quicky tweak them in the browser. I'm not a fan of styled components as it really removes the "cascade" part of the CSS, but I'm able to play along ;) Same for tailwind, which puts us 25 years back to, really, inline-styles.

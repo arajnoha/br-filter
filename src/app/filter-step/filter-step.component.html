@@ -1,0 +1,14 @@
+<section>
+    <header>
+        <h5>{{ stepNumber }}. step: {{ searchQuery || 'Unnamed step' }}</h5>
+        <app-button appearance="text-like" color="normal" type="button" (click)="removeStep()">Remove step</app-button>
+    </header>
+  
+    <app-dropdown 
+      [items]="filteredEvents" 
+      [searchQuery]="searchQuery" 
+      (selectEvent)="selectEvent($event)"
+      (filterEvents)="filterEvents($event)"
+      (toggleDropdown)="toggleDropdown()"
+    ></app-dropdown>
+</section>

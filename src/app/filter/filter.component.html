@@ -1,0 +1,27 @@
+<header>
+    <h4>Customer filter</h4>
+    <app-button appearance="text-like" color="danger" type="button">
+      Discard filters
+    </app-button>
+  </header>
+  
+  <app-filter-step 
+    *ngFor="let step of filterSteps; let i = index"
+    [stepNumber]="step"
+    (remove)="removeFilterStep(i)"
+  ></app-filter-step>
+  
+  <app-button 
+    appearance="text-like" 
+    color="blue" 
+    variation="add" 
+    type="button"
+    (click)="addFilterStep()"
+  >
+    Add funnel step
+  </app-button>
+  
+  <app-button appearance="cta" color="normal" type="button">
+    Apply filters
+  </app-button>
+  

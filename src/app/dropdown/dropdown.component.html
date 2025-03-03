@@ -1,0 +1,21 @@
+<div class="dropdown">
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery" 
+      (input)="onSearchQueryChange()" 
+      (focus)="toggleDropdownState()" 
+      placeholder="Search event..."
+      class="dropdown-input"
+    />
+  
+    <div class="dropdown-menu" *ngIf="dropdownOpen">
+      <div 
+        *ngFor="let event of items" 
+        class="dropdown-item" 
+        (click)="onItemSelect(event.name)"
+      >
+        {{ event.name }}
+      </div>
+    </div>
+  </div>
+  

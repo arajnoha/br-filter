@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --text-color: #373737;
+    --text-color-light: #7c7c7c;
+    --text-danger: #dc6363;
+    --text-blue: #43a7d2;
+    --accent-color: #efce12;
+    --border-color: #dddddd;
+}
+html,body {
+    height: 100%;
+    font-family: "Noto Sans", serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    appearance: none;
+}
+
+h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+h5 {
+    font-size: 12px;
+    color: var(--text-color-light);
+    padding: 10px 0;
+}
